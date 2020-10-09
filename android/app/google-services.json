@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "235106307149",
+    "firebase_url": "https://katazzafeedback.firebaseio.com",
+    "project_id": "katazzafeedback",
+    "storage_bucket": "katazzafeedback.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235106307149:android:1f21e8c80c26bd78636004",
+        "android_client_info": {
+          "package_name": "com.katazzahack.katazza_feedback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235106307149-3l1l9g7f3abf4e4hnfhcm69tptk1u7en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4H_7xqADlLRdEbrwQPQ-oEGSJIafwwoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235106307149-3l1l9g7f3abf4e4hnfhcm69tptk1u7en.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
