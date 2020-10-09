@@ -1,0 +1,4 @@
+#Fri Oct 09 22:09:54 MSK 2020
+base.0=/home/okalitova/coding/projects/katazza_feedback/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
