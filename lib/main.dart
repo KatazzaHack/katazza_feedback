@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
   runApp(MyApp());
@@ -60,42 +61,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text(_selectedIndex.toString()),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Center(),
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('users').snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return LinearProgressIndicator();
+        return Scaffold(
+          appBar: AppBar(
+            // Here we take the value from the MyHomePage object that was created by
+            // the App.build method, and use it to set our appbar title.
+            title: Text(widget.title),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            title: Center(),
+          body: Center(
+            child: Text(_selectedIndex.toString()),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Center(),
+          bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                title: Center(),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add),
+                title: Center(),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                title: Center(),
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            backgroundColor: Colors.lightBlue,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.black,
           ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        backgroundColor: Colors.lightBlue,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.black,
-      ),
-    );
+        );
+      },);
   }
 }
